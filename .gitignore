@@ -5,6 +5,4 @@ find_it/include/
 
 find_it/bin/
 
-scraping/__pycache__/
-
-find_it/__pycache__/
+__pycache__/

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db import IntegrityError
+
 from scraping.utils import *
 from scraping.models import *
 
