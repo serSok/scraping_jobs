@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <div class="row">
+        {% if jobs%}
+            {% for job in jobs %}
+                <div class="col-12 text-left">
+                    <h4><a href="{{job.url}}"> {{job.title}}</a> </h4>
+                    <p>
+                    {{job.description}}
+                    </p><br/>
+                    <p>
+                    {{job.company}}
+                    </p><br/><hr>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <h2>
+                    Ничего не нашли
+                </h2>
+            </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="GET" action="">
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success">
+                    Показать
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock content%}
