@@ -24,5 +24,7 @@ urlpatterns = [
     path('index/', index),
     path('home/', home),
     path('list/', vacancy_list, name='list'),
+    path('login/', login_subscriber, name='login'),
+    path('update/', update_subscriber, name='update'),
     path('create/', SubscribersCreate.as_view(), name='create'),
 ]
