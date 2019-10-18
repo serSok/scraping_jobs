@@ -1,0 +1,10 @@
+
+find_it/lib/
+
+find_it/include/
+
+find_it/bin/
+
+scraping/__pycache__/
+
+find_it/__pycache__/
