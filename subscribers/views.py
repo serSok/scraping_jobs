@@ -29,14 +29,11 @@ def login_subscriber(request):
     elif request.method == 'POST':
         form = LogInForm(request.POST or None)
         if form.is_valid():
-            print('valid!!!')
             data = form.cleaned_data
             request.session['email'] = data['email']
             return redirect('update')
         return render(request, 'subscribers/login.html', {'form': form})
         
-
-
 def update_subscriber(request):
     if request.method == 'GET' and request.session.get('email', False):
         email = request.session.get('email')

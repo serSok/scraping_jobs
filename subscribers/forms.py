@@ -20,10 +20,11 @@ class LogInForm(forms.Form):
 
     def clean_password(self, *args, **kwargs):
         email = self.cleaned_data.get('email')
-        password = self.cleaned_data.get('password')
-
+        password = self.cleaned_data.get('password')        
         if email and password:
-            qs = Subscribers.objects.filter(email=email).first
+            qs = Subscribers.objects.filter(email=email).first()
+            print('!!!!!!!!!!!!!!1qs=')
+            print(qs.speciality)
             if qs == None:
                 raise forms.ValidationError(""" Такой эмаил уже есть """)
             elif password != qs.password:
