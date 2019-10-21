@@ -23,14 +23,11 @@ class LogInForm(forms.Form):
         password = self.cleaned_data.get('password')        
         if email and password:
             qs = Subscribers.objects.filter(email=email).first()
-            print('!!!!!!!!!!!!!!1qs=')
-            print(qs.speciality)
             if qs == None:
-                raise forms.ValidationError(""" Такой эмаил уже есть """)
+                raise forms.ValidationError(" Такой эмаил уже есть ")
             elif password != qs.password:
-                raise forms.ValidationError(""" Не верный пароль """)
+                raise forms.ValidationError(" Не верный пароль ")
         return email
-
 
 
 class SubscribersHiddenEmailForm(forms.ModelForm):
