@@ -2,7 +2,18 @@ import psycopg2
 import logging
 import datetime
 
-from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, MAILGUN_KEY, API
+try:
+    from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, MAILGUN_KEY, API
+except:
+    DB_HOST = os.environ.get('DB_HOST')
+    DB_NAME = os.environ.get('DB_NAME')
+    DB_PASSWORD = os.environ.get('DB_PASSWORD')
+    DB_USER = os.environ.get('DB_USER')
+    MAILGUN_KEY = os.environ.get('MAILGUN_KEY')
+    API = os.environ.get('API')
+
+
+
 from scraping.utils import *
 
 today = datetime.date.today()

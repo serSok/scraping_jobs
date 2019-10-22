@@ -1,8 +1,18 @@
 import psycopg2
 import logging
 import datetime
+import os
 
-from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+
+dir = os.path.dirname(os.path.abspath('db.py'))
+try:
+    from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+except:
+    DB_HOST = os.environ.get('DB_HOST')
+    DB_NAME = os.environ.get('DB_NAME')
+    DB_PASSWORD = os.environ.get('DB_PASSWORD')
+    DB_USER = os.environ.get('DB_USER')
+
 from scraping.utils import *
 
 today = datetime.date.today()
