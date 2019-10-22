@@ -134,8 +134,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-import dj-databases-url
-db = dj-databases-url.config()
+import dj_database_url
+db = dj_database_url.config()
 DATABASES['default'].update(db)
 
 
