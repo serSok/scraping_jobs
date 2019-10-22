@@ -14,7 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+
 from scraping.views import *
 from subscribers.views import * 
 
@@ -30,3 +32,9 @@ urlpatterns = [
     path('create/', SubscribersCreate.as_view(), name='create'),
     path('', index, name='index'),
 ]
+
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        path('rosetta/', include('rosetta.urls'))
+    ]

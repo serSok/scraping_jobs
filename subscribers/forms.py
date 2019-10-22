@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext as _
 
 from subscribers.models import Subscribers
 from scraping.models import Speciality, City
@@ -26,7 +27,8 @@ class LogInForm(forms.Form):
             if qs == None:
                 raise forms.ValidationError(" Такой эмаил уже есть ")
             elif password != qs.password:
-                raise forms.ValidationError(" Не верный пароль ")
+                pass_error = _("Не верный пароль")
+                raise forms.ValidationError(pass_error)
         return email
 
 
