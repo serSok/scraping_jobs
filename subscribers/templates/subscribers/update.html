@@ -3,14 +3,14 @@
 {% block content%}
 
     <div class="row my-5">
-            <div class="col">
+            <div class="col-10 mx-auto">
                 <h2>
                     Редактирование пользователя
                 </h2>
             </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-md-8 mx-auto">
             <form method="POST" action=""> {% csrf_token %}
                 {{form.as_p}}
                 <button type="submit" class="btn btn-success">

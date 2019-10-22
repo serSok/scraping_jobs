@@ -6,8 +6,9 @@ from scraping.utils import *
 from scraping.models import *
 from scraping.forms import FindVacancyForm
 
-def index(request):
-    return render(request, 'base.html')
+# def index(request):
+#     form = FindVacancyForm
+#     return render(request, 'scraping/list.html', {'form': form})
 
 
 def list_v(request):
@@ -20,25 +21,25 @@ def list_v(request):
     return render(request, 'scraping/list.html')
 
 
-def vacancy_list(request):
-    today = datetime.date.today()
-    form = FindVacancyForm
+# def vacancy_list(request):
+#     today = datetime.date.today()
+#     form = FindVacancyForm
 
-    if request.GET:
-        try:
-            city_id = int(request.GET.get('city'))
-            speciality_id = int(request.GET.get('speciality'))
-        except ValueError:
-            raise Http404('Page not found')
-        context = {}
-        context['form'] = form
-        qs = Vacancy.objects.filter(city=city_id, speciality=speciality_id, timestamp=today)
-        if qs:
-            context['jobs'] = qs
-            return render(request, 'scraping/list.html', context)
+#     if request.GET:
+#         try:
+#             city_id = int(request.GET.get('city'))
+#             speciality_id = int(request.GET.get('speciality'))
+#         except ValueError:
+#             raise Http404('Page not found')
+#         context = {}
+#         context['form'] = form
+#         qs = Vacancy.objects.filter(city=city_id, speciality=speciality_id, timestamp=today)
+#         if qs:
+#             context['jobs'] = qs
+#             return render(request, 'scraping/list.html', context)
 
 
-    return render(request, 'scraping/list.html', {'form': form})
+#     return render(request, 'scraping/list.html', {'form': form})
 
 
 

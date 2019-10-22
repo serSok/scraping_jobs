@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content%}
-    <div class="row">
+    <div class="row my-5">
         {% if jobs%}
+        <h2>
+            Вакансии по запросу: город - {{ city }}, специальность - {{ speciality }}
+        </h2>
+        <hr>
             {% for job in jobs %}
                 <div class="col-12 text-left">
                     <h4><a href="{{job.url}}"> {{job.title}}</a> </h4>
                     <p>
-                    {{job.description}}
+                        {{job.description}}
                     </p><br/>
                     <p>
-                    {{job.company}}
-                    </p><br/><hr>
+                        Вакансия о компании - 
+                        {{job.company}}
+                        <small></small>
+                            Размещенна - 
+                            {{ job.timestamp | date:"SHORT_DATE_FORMAT" }}
+                        </small>
+                    </p>
+                    <br/><hr>
                 </div>
             {% endfor %}
         {% else %}

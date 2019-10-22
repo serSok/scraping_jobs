@@ -67,7 +67,10 @@ else:
             jobs = data['content']
 
             for job in jobs:
-                cur.execute(""" SELECT * FROM scraping_vacancy WHERE url=%s; """, (job['href'],))
+                cur.execute(
+                    """ SELECT * FROM scraping_vacancy WHERE url=%s; """,
+                    (job['href'],)
+                )
                 qs = cur.fetchone()
                 if not qs:
                     cur.execute(""" INSERT INTO scraping_vacancy (city_id, speciality_id, title, 
