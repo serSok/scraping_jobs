@@ -8,3 +8,5 @@ find_it/bin/
 __pycache__/
 
 find_it/secret\.py
+
+find_it/settings/local\.py
