@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'rd@tkapaz#&qa^v-ch^je4q7rx_meuf*1_43fm7sga)pq%ngiy'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING
+# : don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['find-it-less1.herokuapp.com']
@@ -78,7 +79,14 @@ WSGI_APPLICATION = 'find_it.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+# from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+
+DB_HOST = os.environ.get(DB_HOST)
+DB_NAME = os.environ.get(DB_NAME)
+DB_PASSWORD = os.environ.get(DB_PASSWORD)
+DB_USER = os.environ.get(DB_USER)
+
+
 
 DATABASES = {
     'default': {
