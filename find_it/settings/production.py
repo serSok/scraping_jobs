@@ -79,12 +79,13 @@ WSGI_APPLICATION = 'find_it.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
-
-DB_HOST = os.environ.get(DB_HOST)
-DB_NAME = os.environ.get(DB_NAME)
-DB_PASSWORD = os.environ.get(DB_PASSWORD)
-DB_USER = os.environ.get(DB_USER)
+try:
+    from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+except:
+    DB_HOST = os.environ.get(DB_HOST)
+    DB_NAME = os.environ.get(DB_NAME)
+    DB_PASSWORD = os.environ.get(DB_PASSWORD)
+    DB_USER = os.environ.get(DB_USER)
 
 
 
