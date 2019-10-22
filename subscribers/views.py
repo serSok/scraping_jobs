@@ -6,8 +6,15 @@ from django.core.mail import send_mail
 import requests
 
 from .forms import SubscribersModelForm, LogInForm, SubscribersHiddenEmailForm, ContactForm
-from find_it.secret import ADMIN_EMAIL, MAILGUN_KEY, API
+
+from django.conf import settings
+# from find_it.secret import ADMIN_EMAIL, MAILGUN_KEY, API
 from .models import Subscribers
+
+ADMIN_EMAIL = settings.ADMIN_EMAIL
+MAILGUN_KEY = settings.MAILGUN_KEY
+API = settings.API
+
 
 class SubscribersCreate(CreateView):
     model = Subscribers

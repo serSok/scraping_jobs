@@ -80,12 +80,15 @@ WSGI_APPLICATION = 'find_it.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 try:
-    from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+    from find_it.secret import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, ADMIN_EMAIL, MAILGUN_KEY, API
 except:
     DB_HOST = os.environ.get('DB_HOST')
     DB_NAME = os.environ.get('DB_NAME')
     DB_PASSWORD = os.environ.get('DB_PASSWORD')
     DB_USER = os.environ.get('DB_USER')
+    ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL') 
+    MAILGUN_KEY = os.environ.get('MAILGUN_KEY')
+    API = os.environ.get('API')
 
 
 
