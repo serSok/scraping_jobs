@@ -25,7 +25,7 @@ class LogInForm(forms.Form):
         if email and password:
             qs = Subscribers.objects.filter(email=email).first()
             if qs == None:
-                raise forms.ValidationError(" Такой эмаил уже есть ")
+                raise forms.ValidationError(_(" Такой эмаил уже есть "))
             elif password != qs.password:
                 pass_error = _("Не верный пароль")
                 raise forms.ValidationError(pass_error)

@@ -1,3 +1,6 @@
+{% url 'create' as create_url %}
+{% url 'update' as update_url %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,6 +40,8 @@
     <link href="https://getbootstrap.com/starter-template.css" rel="stylesheet">
   </head>
   <body>
+  <div class="container">
+    <!-- <nav class="navbar navbar-expand-md navbar-dark  fixed-top" style="background-color: #e3f2fd;"> -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="{% url 'index' %}">FindIt</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,14 +49,14 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+    <ul class="navbar-nav ml-auto">
+      <!-- <li class="nav-item active">
         <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <li class="nav-item {% if request.path == create_url %}active{% endif %} ">
         <a class="nav-link" href="{% url 'create' %}">Подписаться</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {% if request.path == update_url %} active{% endif %}  ">
         <a class="nav-link" href="{% url 'login' %}" tabindex="-1" aria-disabled="true">Редактировать</a>
       </li>
       <!-- <li class="nav-item dropdown">
@@ -65,7 +70,7 @@
     </ul>
   </div>
 </nav>
-
+</div>
 <main role="main" class="container my-5">
 
   <div class="starter-template text-center">
